@@ -1,21 +1,18 @@
 cmake_minimum_required(VERSION 3.9)
-project(multi_threaded_sorting)
+project(sort-root)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wall -Werror -Wextra")
+set(SORT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/src/sort)
 
-add_executable(sort_benchmark sort_benchmark.cpp dump.h sort.h)
-#target_link_libraries (sort_benchmark ${CMAKE_THREAD_LIBS_INIT})
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-target_link_libraries(sort_benchmark benchmark Threads::Threads)
 
+find_package(glog 0.3.5 REQUIRED)
 
-SET(CATCH_PATH /home/oem/Documents/Homeworks/Cpp-homework/catch)
-add_library(catch STATIC IMPORTED)
-set_property(TARGET catch PROPERTY IMPORTED_LOCATION "${CATCH_PATH}/libcatch.a")
+include_directories(include)
 
-add_executable(sort_test sort_test.cpp dump.h sort.h)
-target_include_directories(sort_test PRIVATE ${CATCH_PATH})
-target_link_libraries(sort_test catch Threads::Threads)
-
+add_subdirectory(lib/catch)
+add_subdirectory(src/sort)
+add_subdirectory(src/test)
+add_subdirectory(src/benchmark)
