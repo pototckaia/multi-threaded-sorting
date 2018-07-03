@@ -1,0 +1,27 @@
+2018-07-03 03:19:57
+Running ./src/benchmark/sort_benchmark
+Run on (4 X 3000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x2)
+  L1 Instruction 32K (x2)
+  L2 Unified 256K (x2)
+  L3 Unified 3072K (x1)
+----------------------------------------------------------
+Benchmark                   Time           CPU Iterations
+----------------------------------------------------------
+BM_Sort_great/0/0  33985591686 ns 33924781263 ns          1
+BM_Sort_great/1/1  24677844446 ns 24617572717 ns          1
+BM_Sort_great/1/2  24987683902 ns 2554930134 ns          1
+BM_Sort_great/1/3  26406306032 ns 2523316654 ns          1
+BM_Sort_great/1/4  19501198505 ns 2666721961 ns          1
+BM_Sort_great/1/5  19245575361 ns 2671190708 ns          1
+BM_Sort_great/1/6  19313377580 ns 2667068214 ns          1
+BM_Sort_great/1/7  20278601269 ns 2658883302 ns          1
+BM_Sort_great/1/8  20943484751 ns 2659202231 ns          1
+BM_Sort_great/1/9  21376421185 ns 2678400444 ns          1
+BM_Sort_great/1/10 19254624488 ns 2556208478 ns          1
+BM_Sort_great/1/11 19401119098 ns 2531515601 ns          1
+BM_Sort_great/1/12 19402636272 ns 2537327515 ns          1
+BM_Sort_great/1/13 19278335994 ns 2525581157 ns          1
+BM_Sort_great/1/14 19236670023 ns 2531824858 ns          1
+BM_Sort_great/1/15 19398144155 ns 2670782654 ns          1

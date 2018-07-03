@@ -1,0 +1,44 @@
+2018-07-03 11:44:46
+Running ./src/benchmark/sort_benchmark
+Run on (4 X 3000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x2)
+  L1 Instruction 32K (x2)
+  L2 Unified 256K (x2)
+  L3 Unified 3072K (x1)
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+-----------------------------------------------------------
+Benchmark                    Time           CPU Iterations
+-----------------------------------------------------------
+BM_Sort_little/0/0    13372268 ns   13340096 ns         54
+BM_Sort_little/1/1    12393307 ns   10909324 ns         73
+BM_Sort_little/1/2    11282822 ns    1390378 ns        482
+BM_Sort_little/1/3    12503022 ns    1494768 ns        585
+BM_Sort_little/1/4     8391698 ns    1030497 ns        652
+BM_Sort_little/1/5     8611594 ns    1093670 ns        655
+BM_Sort_little/1/6     9065915 ns    1096737 ns        528
+BM_Sort_little/1/7     9151596 ns    1114803 ns        660
+BM_Sort_little/1/8     8911611 ns    1093028 ns        647
+BM_Sort_little/1/9     9194426 ns    1126760 ns        635
+BM_Sort_little/1/10    9206261 ns    1112678 ns        639
+BM_Sort_little/1/11    9403401 ns    1128648 ns        614
+BM_Sort_little/1/12   10210276 ns    1222342 ns        621
+BM_Sort_little/1/13   16486884 ns    1731476 ns        409
+BM_Sort_little/1/14   11161844 ns    1280864 ns        556
+BM_Sort_little/1/15   10538050 ns    1184403 ns        587
+BM_Sort_big/0/0     2693007435 ns 2684580834 ns          1
+BM_Sort_big/1/1     1684047916 ns 1676255174 ns          1
+BM_Sort_big/1/2     1743528881 ns  212465052 ns          3
+BM_Sort_big/1/3     1793899946 ns  211089036 ns          3
+BM_Sort_big/1/4     1448265200 ns  208611519 ns          3
+BM_Sort_big/1/5     1547266009 ns  209146487 ns          3
+BM_Sort_big/1/6     1513033462 ns  209438641 ns          3
+BM_Sort_big/1/7     1478298609 ns  209282208 ns          3
+BM_Sort_big/1/8     1503581303 ns  209806968 ns          3
+BM_Sort_big/1/9     1603125841 ns  213396776 ns          3
+BM_Sort_big/1/10    1483926629 ns  211765469 ns          3
+BM_Sort_big/1/11    1474024960 ns  209078187 ns          3
+BM_Sort_big/1/12    1451888286 ns  204950365 ns          3
+BM_Sort_big/1/13    1608573686 ns  205222915 ns          3
+BM_Sort_big/1/14    1460359762 ns  210247547 ns          3
+BM_Sort_big/1/15    1468870223 ns  205850493 ns          3
