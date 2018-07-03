@@ -2,6 +2,6 @@
 
 cmake-build-*/
 build
-lib/*
+lib/glog
 bin/*
 UNKNOWN.INFO
