@@ -81,9 +81,8 @@ int main(int argc, char** argv)
 
 //    FLAGS_logtostderr = true;
     std::cout << argv[0];
-    google::SetLogDestination(google::GLOG_INFO, "../logger" );
-    google::InitGoogleLogging(argv[0]);
-
+    //google::SetLogDestination(google::GLOG_INFO, "../logger" );
+    //google::InitGoogleLogging(argv[0]);
 
 
     ::benchmark::Initialize(&argc, argv);

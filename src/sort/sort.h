@@ -8,7 +8,7 @@
 #include "dump.h"
 
 
-static logger info;
+//static logger info;
 
 namespace tst
 {
@@ -50,7 +50,7 @@ void multi_sort(Iter left, Iter right, int count_thread, std::random_access_iter
                                   [pivot](const auto& em){ return !(em > pivot   ); });
 
 
-        info.partition(std::distance(left, middle1), std::distance(middle2, right));
+        //info.partition(std::distance(left, middle1), std::distance(middle2, right));
 
 
     std::future<void> han_1;
@@ -58,20 +58,20 @@ void multi_sort(Iter left, Iter right, int count_thread, std::random_access_iter
 
     if (count_thread <= 0) {
 
-        info.end(std::distance(left, right));
+        //info.end(std::distance(left, right));
         tst::sort(left, middle1);
         tst::sort(middle2, right);
     }
     else if (count_thread == 1) {
 
-        info.create_thread(0, std::distance(left, middle1));
+        //info.create_thread(0, std::distance(left, middle1));
         han_1 = std::async(
                     std::launch::async,
                     [&] { return tst::sort(left, middle1); }
         );
 
 
-        info.main_thread(std::distance(middle2, right));
+        //info.main_thread(std::distance(middle2, right));
         tst::sort(middle2, right, std::random_access_iterator_tag());
     }
     else if (count_thread >= 2) {
@@ -79,14 +79,14 @@ void multi_sort(Iter left, Iter right, int count_thread, std::random_access_iter
         int thread_1 = count_thread / 2;
         int thread_2 = count_thread - thread_1;
 
-        info.create_thread(thread_1, std::distance(left, middle1));
+        //info.create_thread(thread_1, std::distance(left, middle1));
         han_1 = std::async(
                 std::launch::async,
                 multi_sort<Iter>,
                 left, middle1, thread_1, std::random_access_iterator_tag()
         );
 
-        info.create_thread(thread_2, std::distance(middle2, right));
+        //info.create_thread(thread_2, std::distance(middle2, right));
         han_2 = std::async(
                 std::launch::async,
                 multi_sort<Iter>,
@@ -102,11 +102,20 @@ void multi_sort(Iter left, Iter right, int count_thread, std::random_access_iter
 
 template <typename Iter>
 void multi_sort(Iter left, Iter right, int count_thread = 4) {
+    //info.start(count_thread, std::distance(left, right));
+    std::future<void> hand;
 
-    info.start(count_thread, std::distance(left, right));
+    if (count_thread >= 1) {
+        --count_thread;
+        hand = std::async(std::launch::async, [&] () {
+                tst::multi_sort(left, right, count_thread, typename std::iterator_traits<Iter>::iterator_category()
+            );
+        });
 
-    tst::multi_sort(left, right, count_thread,
-                    typename std::iterator_traits<Iter>::iterator_category());
+    } else {
+        tst::sort(left, right);
+    }
+    if (hand.valid()) { hand.get(); }
 }
 
 
